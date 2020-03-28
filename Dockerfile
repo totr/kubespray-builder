@@ -1,8 +1,12 @@
 FROM troykinsella/concourse-ansible-playbook-resource:2.0.0 as base
 LABEL maintainer="Tomas Trnka <tt@tomastrnka.net>"
-RUN apt-get update
-RUN apt-get install apache2-utils -y
+RUN apt-get update -y
+RUN apt-get install -y jq apache2-utils 
 
 FROM base AS tools
 COPY requirements.txt /requirements.txt
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt \
+    && wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.11.0/kubeseal-linux-amd64 -O kubeseal \
+    && install -m 755 kubeseal /usr/local/bin/kubeseal \
+    && wget https://github.com/mikefarah/yq/releases/download/3.2.1/yq_linux_amd64 -O yq \
+    && install -m 755 yq /usr/local/bin/yq

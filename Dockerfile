@@ -1,7 +1,7 @@
 FROM troykinsella/concourse-ansible-playbook-resource:2.0.0 as base
 LABEL maintainer="Tomas Trnka <tt@tomastrnka.net>"
 RUN apt-get update -y
-RUN apt-get install -y jq apache2-utils 
+RUN apt-get install -y jq apache2-utils git-crypt
 
 FROM base AS tools
 COPY requirements.txt /requirements.txt

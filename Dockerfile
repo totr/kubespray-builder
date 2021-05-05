@@ -11,4 +11,8 @@ RUN pip3 install -r requirements.txt \
     && wget https://github.com/mikefarah/yq/releases/download/3.2.1/yq_linux_amd64 -O yq \
     && install -m 755 yq /usr/local/bin/yq \
     && wget https://storage.googleapis.com/kubernetes-release/release/v1.18.5/bin/linux/amd64/kubectl -O kubectl \
-    && install -m 755 kubectl /usr/local/bin/kubectl
+    && install -m 755 kubectl /usr/local/bin/kubectl \
+    && wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.10.0/kustomize_v3.10.0_linux_amd64.tar.gz -O kustomize-install.tar.gz \
+    && tar -xf kustomize-install.tar.gz \
+    && rm kustomize-install.tar.gz \
+    && install -m 755 kustomize /usr/local/bin/kustomize

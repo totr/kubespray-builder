@@ -6,7 +6,7 @@ RUN apt-get install -y jq apache2-utils git-crypt
 FROM base AS tools
 COPY requirements.txt /requirements.txt
 RUN pip3 install -r requirements.txt \
-    && wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.12.4/kubeseal-linux-amd64 -O kubeseal \
+    && wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.16.0/kubeseal-linux-amd64 -O kubeseal \
     && install -m 755 kubeseal /usr/local/bin/kubeseal \
     && wget https://github.com/mikefarah/yq/releases/download/v4.13.5/yq_linux_amd64 -O yq \
     && install -m 755 yq /usr/local/bin/yq \

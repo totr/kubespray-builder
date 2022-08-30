@@ -12,7 +12,7 @@ RUN pip3 install -r requirements.txt \
     && install -m 755 kubeseal /usr/local/bin/kubeseal \
     && wget https://github.com/mikefarah/yq/releases/download/v4.13.5/yq_linux_amd64 -O yq \
     && install -m 755 yq /usr/local/bin/yq \
-    && wget https://storage.googleapis.com/kubernetes-release/release/v1.18.5/bin/linux/amd64/kubectl -O kubectl \
+    && wget https://storage.googleapis.com/kubernetes-release/release/v1.25.0/bin/linux/amd64/kubectl -O kubectl \
     && install -m 755 kubectl /usr/local/bin/kubectl \
     && wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.10.0/kustomize_v3.10.0_linux_amd64.tar.gz -O kustomize-install.tar.gz \
     && tar -xf kustomize-install.tar.gz \
